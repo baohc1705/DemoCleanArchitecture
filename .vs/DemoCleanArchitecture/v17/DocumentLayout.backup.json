@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\ASP.NET\\DemoCleanArchitecture\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.domain\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|solutionrelative:democleanarchitecture.domain\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.domain\\enums\\newsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|solutionrelative:democleanarchitecture.domain\\enums\\newsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.domain\\entities\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|solutionrelative:democleanarchitecture.domain\\entities\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|solutionrelative:democleanarchitecture.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NewsStatus.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Enums\\NewsStatus.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Enums\\NewsStatus.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Enums\\NewsStatus.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Domain\\Enums\\NewsStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:54:35.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "News.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\News.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Entities\\News.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\News.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Domain\\Entities\\News.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:52:00.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Entities\\BaseEntity.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Domain\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:47:34.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\Menu.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Entities\\Menu.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Entities\\Menu.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Domain\\Entities\\Menu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:47:08.407Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
