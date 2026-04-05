@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using DemoCleanArchitecture.Application.Common.Mappings;
+using DemoCleanArchitecture.Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,11 @@ namespace DemoCleanArchitecture.Application
     {
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
-           
+            services.AddAutoMapper(cfg => {},Assembly.GetExecutingAssembly());
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            });
             return services;
         }
     }

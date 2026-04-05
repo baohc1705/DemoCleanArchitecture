@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Data\PersistenceModels\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
