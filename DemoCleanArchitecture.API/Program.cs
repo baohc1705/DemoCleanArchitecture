@@ -1,6 +1,13 @@
+using DemoCleanArchitecture.Application;
+using DemoCleanArchitecture.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//Add layer
+builder.Services.AddApplicationService();
+builder.Services.AddInfrastructureService(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
