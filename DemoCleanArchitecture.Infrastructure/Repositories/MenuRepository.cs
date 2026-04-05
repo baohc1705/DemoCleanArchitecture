@@ -38,29 +38,38 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
                 })
                 .AsNoTracking()
                 .ToListAsync();
-            //var query = await _context.Menus
-            //    .Where(m => m.IsActive && m.DeletedAt == null)
-            //    .OrderBy(m => m.DisplayOrder)
-            //    .Select(m => new Domain.Entities.Menu
-            //    {
-            //        Id = m.Id,
-            //        Name = m.Name,
-            //        Slug = m.Slug,
-            //        DisplayOrder = m.DisplayOrder,
-            //        IsActive = m.IsActive,
-            //        ParentId = m.ParentId,
-            //        News = m.News
-            //        .Select(n => new Domain.Entities.News { Id = n.Id }).ToList(),
-            //        Children = m.InverseParent.Select(c => new Domain.Entities.Menu
-            //        {
-            //            Id = c.Id,
-            //            Name = c.Name,
-            //            Slug = c.Slug,
-            //            IsActive = c.IsActive
-            //        }).ToList()
-            //    })
-            //    .AsNoTracking()
-            //    .ToListAsync();
+            sw.Stop();
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+            return query;
+        }
+
+        public async Task<IEnumerable<Menu>> GetAllWithNewsAsync()
+        {
+            var sw = Stopwatch.StartNew();
+
+            var query = await _context.Menus
+                .Where(m => m.IsActive && m.DeletedAt == null)
+                .OrderBy(m => m.DisplayOrder)
+                .Select(m => new Domain.Entities.Menu
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Slug = m.Slug,
+                    DisplayOrder = m.DisplayOrder,
+                    IsActive = m.IsActive,
+                    ParentId = m.ParentId,
+                    News = m.News
+                    .Select(n => new Domain.Entities.News { Id = n.Id }).ToList(),
+                    Children = m.InverseParent.Select(c => new Domain.Entities.Menu
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Slug = c.Slug,
+                        IsActive = c.IsActive
+                    }).ToList()
+                })
+                .AsNoTracking()
+                .ToListAsync();
 
             //var data = await _context.Menus
             //     .Include(m => m.News)
@@ -74,7 +83,60 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             sw.Stop();
             Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
             return query;
+        }
 
+        public async Task<Menu> GetByIdAsync(int id)
+        {
+            var sw = Stopwatch.StartNew();
+
+            var query = await _context.Menus
+                .Where(m => m.Id == id && m.IsActive)
+                .Select(m => new Domain.Entities.Menu
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Slug = m.Slug,
+                    IsActive = m.IsActive,
+
+                })
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+            
+            sw.Stop();
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+            return query;
+        }
+
+        public async Task<Menu> GetByIdWithNewsAsync(int id)
+        {
+            var sw = Stopwatch.StartNew();
+
+            var query = await _context.Menus
+                .Where(m => m.Id == id && m.IsActive)
+                .Select(m => new Domain.Entities.Menu
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Slug = m.Slug,
+                    DisplayOrder = m.DisplayOrder,
+                    IsActive = m.IsActive,
+                    ParentId = m.ParentId,
+                    News = m.News
+                    .Select(n => new Domain.Entities.News { Id = n.Id }).ToList(),
+                    Children = m.InverseParent.Select(c => new Domain.Entities.Menu
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Slug = c.Slug,
+                        IsActive = c.IsActive
+                    }).ToList()
+                })
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            sw.Stop();
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+            return query;
         }
     }
 }

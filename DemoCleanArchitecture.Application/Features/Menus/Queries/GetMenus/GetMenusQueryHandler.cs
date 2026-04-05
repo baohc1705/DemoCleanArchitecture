@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCleanArchitecture.Application.Features.Menus.Queries
+namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenus
 {
     public class GetMenusQueryHandler : IRequestHandler<GetMenusQuery, IEnumerable<MenuShortDto>>
     {

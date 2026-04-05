@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCleanArchitecture.Application.Features.Menus.Queries
+namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById
 {
-    public class GetMenusQuery : IRequest<IEnumerable<MenuShortDto>>
+    public class GetMenuByIdQuery : IRequest<MenuShortDto> 
     {
+        public int Id { get; set; }
     }
 }
