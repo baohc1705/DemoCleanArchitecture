@@ -2,6 +2,7 @@
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Domain.Entities;
 using DemoCleanArchitecture.Domain.Interfaces;
+using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,17 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
+
         public CreateMenuCommandHandler(IMenuRepository menuRepository, IMapper mapper)
         {
             _menuRepository = menuRepository;
             _mapper = mapper;
+           
         }
         public async Task<MenuDto> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
         {
+            
+
             var menu = new Menu
             {
                 Name = request.Name,

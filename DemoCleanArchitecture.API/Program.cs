@@ -1,3 +1,4 @@
+using DemoCleanArchitecture.API.Middleware;
 using DemoCleanArchitecture.Application;
 using DemoCleanArchitecture.Infrastructure;
 
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware(typeof(GlobalExceptionMiddleware));
 
 app.UseAuthorization();
 

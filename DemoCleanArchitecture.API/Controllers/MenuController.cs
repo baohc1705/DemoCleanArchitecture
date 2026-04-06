@@ -23,7 +23,7 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse<IEnumerable<MenuShortDto>>), StatusCodes.Status200OK)]
+
         public async Task<IActionResult> GetMenus()
         {
             var response = await _mediator.Send(new GetMenusQuery());
@@ -31,7 +31,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpGet("GetMenusWithNews")]
-        [ProducesResponseType(typeof(ApiResponse<IEnumerable<MenuDto>>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetMenusWithNews()
         {
             var response = await _mediator.Send(new GetMenusWithNewsQuery());
@@ -39,15 +38,13 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<MenuShortDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetMenusById(int id)
         {
-            var response = await _mediator.Send(new GetMenuByIdQuery() { Id = id});
+            var response = await _mediator.Send(new GetMenuByIdQuery() { Id = id });
             return Ok(ApiResponse<MenuShortDto>.Ok(response, "Get menus by id successfully"));
         }
 
         [HttpGet("GetMenusWithNews/{id}")]
-        [ProducesResponseType(typeof(ApiResponse<MenuDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetMenusByIdWithMenus(int id)
         {
             var response = await _mediator.Send(new GetMenuByIdWithNewsQuery() { Id = id });
@@ -55,7 +52,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(ApiResponse<MenuDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateMenu([FromBody] CreateMenuCommand command)
         {
             var response = await _mediator.Send(command);
@@ -63,38 +59,25 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteMenu(int id)
         {
-            try
-            {
-                var response = await _mediator.Send(new DeleteMenuCommand() { Id = id });
 
-                return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully"));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ApiResponse<int>.Fail("Not found"));
-            }    
+            var response = await _mediator.Send(new DeleteMenuCommand() { Id = id });
+
+            return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully"));
+
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateMenu(int id, UpdateMenuCommand command)
         {
-            try
-            {
-                if (id != command.Id)
-                    return BadRequest(ApiResponse<int>.Fail("Id not same"));
+            if (id != command.Id)
+                return BadRequest(ApiResponse<int>.Fail("Id not same"));
 
-                var response = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-                return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ApiResponse<int>.Fail("Not found"));
-            }
+            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+
         }
     }
 }

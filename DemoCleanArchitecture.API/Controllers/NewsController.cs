@@ -1,8 +1,6 @@
 ﻿using Azure;
 using DemoCleanArchitecture.API.Common;
 using DemoCleanArchitecture.Application.Common.DTOs;
-using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
-using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.ArchiveNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.CreateNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.DeleteNews;
@@ -28,7 +26,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetNewsById(int id)
         {
             var response = await _mediator.Send(new GetNewsByIdQuery() { Id = id });
@@ -36,7 +33,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse<IEnumerable<NewsShortDto>>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetNews()
         {
             var response = await _mediator.Send(new GetNewsQuery());
@@ -44,7 +40,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateNews([FromBody] CreateNewsCommand command)
         {
             var response = await _mediator.Send(command);
@@ -52,7 +47,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateNews(int id, [FromBody] UpdateNewsCommand command)
         {
             command.Id = id;
@@ -61,18 +55,16 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> SoftDeleteNews(int id)
         {
 
             var response = await _mediator.Send(new DeleteNewsCommand { Id = id });
             if (response < 1)
-                return BadRequest(ApiResponse<int>.Fail());
+                return BadRequest(ApiResponse<int>.Fail("Fail"));
             return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
         }
 
         [HttpPatch("{id}/publish")]
-        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> PublishNews(int id, PublishNewsCommand command)
         {
             var res = await _mediator.Send(new PublishNewsCommand { Id = id });
@@ -83,7 +75,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPatch("{id}/unpublish")]
-        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> UnpublishNews(int id)
         {
             var res = await _mediator.Send(new UnpublishNewsCommand { Id = id});
@@ -91,7 +82,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPatch("{id}/move")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> MoveToMenu(int id, MoveNewsCommand command)
         {
             var res = await _mediator.Send(command);
@@ -99,7 +89,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPatch("{id}/archive")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> ArchiveNews(int id)
         {
             var res = await _mediator.Send(new ArchiveNewsCommand() { Id = id});
@@ -107,7 +96,6 @@ namespace DemoCleanArchitecture.API.Controllers
         }
 
         [HttpPatch("{id}/unarchive")]
-        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> UnarchiveNews(int id)
         {
             var res = await _mediator.Send(new UnarchiveNewsCommand() { Id = id });

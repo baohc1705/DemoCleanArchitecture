@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EswbP2SrxXY=",
+  "dgSpecHash": "xNhu/flpeVQ=",
   "success": true,
   "projectFilePath": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\baohc\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
     "C:\\Users\\baohc\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\baohc\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\baohc\\.nuget\\packages\\mediatr\\14.1.0\\mediatr.14.1.0.nupkg.sha512",
     "C:\\Users\\baohc\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\baohc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
