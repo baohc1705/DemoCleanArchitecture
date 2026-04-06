@@ -10,5 +10,6 @@ namespace DemoCleanArchitecture.Domain.Interfaces
     public interface INewsRepository
     {
         Task<News> GetByIdAsync(int id);
+        Task<IEnumerable<News>> GetAllAsync();
     }
 }

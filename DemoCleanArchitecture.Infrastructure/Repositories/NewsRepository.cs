@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DemoCleanArchitecture.Infrastructure.Repositories
 {
@@ -23,6 +24,25 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             _context = context;
             _mapper = mapper;
         }
+
+        public async Task<IEnumerable<News>> GetAllAsync()
+        {
+            var sw = Stopwatch.StartNew();
+            var query = await _context.News
+                .Where(n => !n.DeletedAt.HasValue)
+                .Select(n => new Domain.Entities.News
+                {
+                    Id = n.Id,
+                    Title = n.Title,
+                    Status = Enum.Parse<NewsStatus>(n.Status),
+                    PublishedAt = n.PublishedAt,
+                })
+                .ToListAsync();
+            sw.Stop();
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+            return query;
+        }
+
         public async Task<News> GetByIdAsync(int id)
         {
             var sw = Stopwatch.StartNew(); 
