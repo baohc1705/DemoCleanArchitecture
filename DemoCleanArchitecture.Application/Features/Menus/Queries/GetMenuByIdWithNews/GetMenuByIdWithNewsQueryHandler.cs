@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById;
-using DemoCleanArchitecture.Application.Interfaces;
+using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;

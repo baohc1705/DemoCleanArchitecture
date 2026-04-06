@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
-using DemoCleanArchitecture.Application.Interfaces;
+using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById
 {
     public class GetMenuByIdQueryHandler : IRequestHandler<GetMenuByIdQuery, MenuShortDto>
     {
-        private readonly IMenuRepository _menuRepository;
+        private readonly IMenuRepository  _menuRepository;
         private readonly IMapper _mapper;
         public GetMenuByIdQueryHandler(IMenuRepository menuRepository, IMapper mapper)
         {

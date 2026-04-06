@@ -1,4 +1,4 @@
-﻿using DemoCleanArchitecture.Application.Interfaces;
+﻿using DemoCleanArchitecture.Domain.Interfaces;
 using DemoCleanArchitecture.Infrastructure.Data;
 using DemoCleanArchitecture.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;

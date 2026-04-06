@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.Mappings;
-using DemoCleanArchitecture.Application.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

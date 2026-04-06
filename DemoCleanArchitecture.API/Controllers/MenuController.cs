@@ -1,5 +1,6 @@
 ﻿using DemoCleanArchitecture.API.Common;
 using DemoCleanArchitecture.Application.Common.DTOs;
+using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
@@ -49,6 +50,14 @@ namespace DemoCleanArchitecture.API.Controllers
         {
             var response = await _mediator.Send(new GetMenuByIdWithNewsQuery() { Id = id });
             return Ok(ApiResponse<MenuDto>.Ok(response, "Get menus by id with news successfully"));
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ApiResponse<MenuDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateMenu([FromBody] CreateMenuCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return Ok(ApiResponse<MenuDto>.Ok(response, "Create news successfully"));
         }
     }
 }

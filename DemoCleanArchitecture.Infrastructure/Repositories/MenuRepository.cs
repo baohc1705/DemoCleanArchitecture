@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Azure.Core;
 using DemoCleanArchitecture.Application.Common.DTOs;
-using DemoCleanArchitecture.Application.Interfaces;
 using DemoCleanArchitecture.Domain.Entities;
+using DemoCleanArchitecture.Domain.Interfaces;
 using DemoCleanArchitecture.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,6 +24,23 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             _context = context;
             _mapper = mapper;
         }
+
+        public async Task<Menu> CreateAsync(Menu menu)
+        {
+            var req = new Data.PersistenceModels.Menu
+            {
+                Name = menu.Name,
+                Slug = menu.Slug,
+                DisplayOrder = menu.DisplayOrder,
+                IsActive = menu.IsActive,
+                ParentId = menu.ParentId,
+            };
+
+            await _context.AddAsync(req);
+            await _context.SaveChangesAsync();
+            return await GetByIdWithNewsAsync(req.Id);
+        }
+
         public async Task<IEnumerable<Menu>> GetAllAsync()
         {
             var sw = Stopwatch.StartNew();

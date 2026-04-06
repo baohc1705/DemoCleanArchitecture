@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
-using DemoCleanArchitecture.Application.Interfaces;
+using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;

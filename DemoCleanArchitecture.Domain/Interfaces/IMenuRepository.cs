@@ -1,11 +1,6 @@
 ﻿using DemoCleanArchitecture.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DemoCleanArchitecture.Application.Interfaces
+namespace DemoCleanArchitecture.Domain.Interfaces
 {
     public interface IMenuRepository
     {
@@ -13,6 +8,7 @@ namespace DemoCleanArchitecture.Application.Interfaces
         Task<IEnumerable<Menu>> GetAllWithNewsAsync();
         Task<Menu> GetByIdAsync(int id);
         Task<Menu> GetByIdWithNewsAsync(int id);
-
+        Task<Menu> CreateAsync(Menu menu);
+        Task<int> DeleteAsync(int id);
     }
 }
