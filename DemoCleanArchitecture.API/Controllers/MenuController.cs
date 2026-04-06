@@ -2,6 +2,7 @@
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.DeleteMenu;
+using DemoCleanArchitecture.Application.Features.Menus.Commands.UpdateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
@@ -58,7 +59,7 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> CreateMenu([FromBody] CreateMenuCommand command)
         {
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<MenuDto>.Ok(response, "Create news successfully"));
+            return Ok(ApiResponse<MenuDto>.Ok(response, "Create menu successfully"));
         }
 
         [HttpDelete("{id}")]
@@ -69,12 +70,31 @@ namespace DemoCleanArchitecture.API.Controllers
             {
                 var response = await _mediator.Send(new DeleteMenuCommand() { Id = id });
 
-                return Ok(ApiResponse<int>.Ok(response, "Delete news successfully"));
+                return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully"));
             }
             catch (Exception ex)
             {
-                return NotFound(ApiResponse<int>.Fail("Not found"));
+                return BadRequest(ApiResponse<int>.Fail("Not found"));
             }    
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpdateMenu(int id, UpdateMenuCommand command)
+        {
+            try
+            {
+                if (id != command.Id)
+                    return BadRequest(ApiResponse<int>.Fail("Id not same"));
+
+                var response = await _mediator.Send(command);
+
+                return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ApiResponse<int>.Fail("Not found"));
+            }
         }
     }
 }

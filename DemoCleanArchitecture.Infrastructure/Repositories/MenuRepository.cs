@@ -3,8 +3,10 @@ using AutoMapper.QueryableExtensions;
 using Azure.Core;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Domain.Entities;
+using DemoCleanArchitecture.Domain.Enums;
 using DemoCleanArchitecture.Domain.Interfaces;
 using DemoCleanArchitecture.Infrastructure.Data;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -126,7 +128,7 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
                 })
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
-            
+
             sw.Stop();
             Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
             return query;
@@ -162,6 +164,25 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             sw.Stop();
             Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
             return query;
+        }
+
+        public async Task<bool> HasActiveNewsAsync(int Id)
+        {
+            return await _context.News
+                .AnyAsync(n => n.MenuId == Id && n.Status.Equals(NewsStatus.Published));
+        }
+
+        public async Task<int> UpdateAsync(int id, Menu menu)
+        {
+            return await _context.Menus
+                 .Where(m => m.Id == id)
+                 .ExecuteUpdateAsync(s => s
+                     .SetProperty(m => m.Name, menu.Name)
+                     .SetProperty(m => m.Slug, menu.Slug)
+                     .SetProperty(m => m.DisplayOrder, menu.DisplayOrder)
+                     .SetProperty(m => m.IsActive, menu.IsActive)
+                     .SetProperty(m => m.ParentId, menu.ParentId)
+                 );
         }
     }
 }
