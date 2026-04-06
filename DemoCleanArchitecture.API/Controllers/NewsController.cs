@@ -1,9 +1,12 @@
-﻿using DemoCleanArchitecture.API.Common;
+﻿using Azure;
+using DemoCleanArchitecture.API.Common;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.CreateNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.DeleteNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.PublishNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.UpdateNews;
 using DemoCleanArchitecture.Application.Features.News.Queries.GetNews;
 using DemoCleanArchitecture.Application.Features.News.Queries.GetNewsById;
@@ -20,7 +23,6 @@ namespace DemoCleanArchitecture.API.Controllers
         public NewsController(ISender mediator) : base(mediator)
         {
         }
-
 
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
@@ -59,11 +61,31 @@ namespace DemoCleanArchitecture.API.Controllers
         [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
         public async Task<IActionResult> SoftDeleteNews(int id)
         {
-            
-            var response = await _mediator.Send(new DeleteNewsCommand { Id = id});
+
+            var response = await _mediator.Send(new DeleteNewsCommand { Id = id });
             if (response < 1)
                 return BadRequest(ApiResponse<int>.Fail());
             return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
         }
+
+        [HttpPatch("{id}/publish")]
+        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> PublishNews(int id, PublishNewsCommand command)
+        {
+            var res = await _mediator.Send(new PublishNewsCommand { Id = id });
+            var msg = command.ScheduledAt.HasValue == true
+                ? $"Đã lên lịch đăng bài vào {command.ScheduledAt:dd/MM/yyyy}."
+                : "Bài viết đã được publish";
+            return Ok(ApiResponse<NewsDto>.Ok(res, msg));
+        }
+
+        [HttpPatch("{id}/unpublish")]
+        [ProducesResponseType(typeof(ApiResponse<NewsDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> UnpublishNews(int id)
+        {
+            var res = await _mediator.Send(new UnpublishNewsCommand { Id = id});
+            return Ok(ApiResponse<NewsDto>.Ok(res, "Bài viết đã được chuyển về Draft."));
+        }
+
     }
 }

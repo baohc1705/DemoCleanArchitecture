@@ -36,7 +36,7 @@ namespace DemoCleanArchitecture.Domain.Entities
 
         public void Unpublish()
         {
-            if (Status != NewsStatus.Published || Status != NewsStatus.Scheduled)
+            if (Status != NewsStatus.Published && Status != NewsStatus.Scheduled)
                 throw new Exception("Chỉ có thể unpublish bài đang published hoặc scheduled");
             Status = NewsStatus.Draft;
             PublishedAt =null;
