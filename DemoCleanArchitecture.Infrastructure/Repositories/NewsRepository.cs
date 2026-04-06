@@ -56,6 +56,11 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             return await GetByIdAsync(created.Entity.Id);
         }
 
+        public Task<int> DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<News>> GetAllAsync()
         {
             var sw = Stopwatch.StartNew();
@@ -77,9 +82,9 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
 
         public async Task<News> GetByIdAsync(int id)
         {
-            var sw = Stopwatch.StartNew(); 
-            var query =  await _context.News
-                .Where(n => n.Id == id)
+            var sw = Stopwatch.StartNew();
+            var query = await _context.News
+                .Where(n => n.Id == id && !n.DeletedAt.HasValue)
                 .OrderBy(n => n.PublishedAt)
                 .Select(n => new Domain.Entities.News
                 {
@@ -105,6 +110,37 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             sw.Stop();
             Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
             return query;
+        }
+
+        public async Task<int> UpdateAsync(News news)
+        {
+            try
+            {
+                var sw = Stopwatch.StartNew();
+                var res = await _context.News
+                .Where(n => n.Id == news.Id)
+                .ExecuteUpdateAsync(s => s
+                    .SetProperty(n => n.MenuId, news.MenuId)
+                    .SetProperty(n => n.Title, news.Title)
+                    .SetProperty(n => n.Slug, news.Slug)
+                    .SetProperty(n => n.Summary, news.Summary)
+                    .SetProperty(n => n.Content, news.Content)
+                    .SetProperty(n => n.ThumbnailUrl, news.ThumbnailUrl)
+                    .SetProperty(n => n.Status, news.Status.ToString()) 
+                    .SetProperty(n => n.PublishedAt, news.PublishedAt)
+                    .SetProperty(n => n.ViewCount, news.ViewCount)
+                    .SetProperty(n => n.UpdatedAt, news.UpdateAt)
+                    .SetProperty(n => n.DeletedAt, news.DeleteAt)
+                );
+                sw.Stop();
+                Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+
         }
     }
 }

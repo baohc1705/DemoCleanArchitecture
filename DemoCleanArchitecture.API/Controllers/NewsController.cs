@@ -3,6 +3,8 @@ using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.CreateNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.DeleteNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.UpdateNews;
 using DemoCleanArchitecture.Application.Features.News.Queries.GetNews;
 using DemoCleanArchitecture.Application.Features.News.Queries.GetNewsById;
 using MediatR;
@@ -42,6 +44,26 @@ namespace DemoCleanArchitecture.API.Controllers
         {
             var response = await _mediator.Send(command);
             return Ok(ApiResponse<NewsDto>.Ok(response, "Create menu successfully"));
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateNews(int id, [FromBody] UpdateNewsCommand command)
+        {
+            command.Id = id;
+            var response = await _mediator.Send(command);
+            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> SoftDeleteNews(int id)
+        {
+            
+            var response = await _mediator.Send(new DeleteNewsCommand { Id = id});
+            if (response < 1)
+                return BadRequest(ApiResponse<int>.Fail());
+            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
         }
     }
 }
