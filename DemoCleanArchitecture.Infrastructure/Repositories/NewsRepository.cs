@@ -112,6 +112,15 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             return query;
         }
 
+        public async Task IncrementViewCountAsync(int id)
+        {
+            await _context.News
+                .Where(n => n.Id == id)
+                .ExecuteUpdateAsync(setter => setter
+                .SetProperty(s => s.ViewCount, n => n.ViewCount + 1)
+                );
+        }
+
         public async Task<int> UpdateAsync(News news)
         {
             try
@@ -126,7 +135,7 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
                     .SetProperty(n => n.Summary, news.Summary)
                     .SetProperty(n => n.Content, news.Content)
                     .SetProperty(n => n.ThumbnailUrl, news.ThumbnailUrl)
-                    .SetProperty(n => n.Status, news.Status.ToString()) 
+                    .SetProperty(n => n.Status, news.Status.ToString())
                     .SetProperty(n => n.PublishedAt, news.PublishedAt)
                     .SetProperty(n => n.ViewCount, news.ViewCount)
                     .SetProperty(n => n.UpdatedAt, news.UpdateAt)

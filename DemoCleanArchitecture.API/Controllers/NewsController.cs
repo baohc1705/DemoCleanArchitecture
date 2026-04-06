@@ -3,9 +3,12 @@ using DemoCleanArchitecture.API.Common;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.ArchiveNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.CreateNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.DeleteNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.MoveNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.PublishNews;
+using DemoCleanArchitecture.Application.Features.News.Commands.UnarchiveNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews;
 using DemoCleanArchitecture.Application.Features.News.Commands.UpdateNews;
 using DemoCleanArchitecture.Application.Features.News.Queries.GetNews;
@@ -87,5 +90,28 @@ namespace DemoCleanArchitecture.API.Controllers
             return Ok(ApiResponse<NewsDto>.Ok(res, "Bài viết đã được chuyển về Draft."));
         }
 
+        [HttpPatch("{id}/move")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> MoveToMenu(int id, MoveNewsCommand command)
+        {
+            var res = await _mediator.Send(command);
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về menu={command.TargetMenuId}"));
+        }
+
+        [HttpPatch("{id}/archive")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> ArchiveNews(int id)
+        {
+            var res = await _mediator.Send(new ArchiveNewsCommand() { Id = id});
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về Archive"));
+        }
+
+        [HttpPatch("{id}/unarchive")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> UnarchiveNews(int id)
+        {
+            var res = await _mediator.Send(new UnarchiveNewsCommand() { Id = id });
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về draft"));
+        }
     }
 }

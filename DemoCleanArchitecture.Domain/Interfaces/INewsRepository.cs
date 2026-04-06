@@ -14,5 +14,6 @@ namespace DemoCleanArchitecture.Domain.Interfaces
         Task<News> CreateAsync(News news);
         Task<int> DeleteAsync(int id);
         Task<int> UpdateAsync(News news);
+        Task IncrementViewCountAsync(int id);
     }
 }

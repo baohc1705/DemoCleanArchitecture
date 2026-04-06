@@ -22,6 +22,7 @@ namespace DemoCleanArchitecture.Application.Features.News.Queries.GetNewsById
         public async Task<NewsDto> Handle(GetNewsByIdQuery request, CancellationToken cancellationToken)
         {
             var data = await _newsRepository.GetByIdAsync(request.Id);
+            await _newsRepository.IncrementViewCountAsync(request.Id);
             return _mapper.Map<NewsDto>(data);
         }
     }
