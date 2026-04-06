@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -21,7 +22,8 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById
         }
         public async Task<MenuShortDto> Handle(GetMenuByIdQuery request, CancellationToken cancellationToken)
         {
-            var data = await _menuRepository.GetByIdAsync(request.Id);
+            var data = await _menuRepository.GetByIdAsync(request.Id) 
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
             return _mapper.Map<MenuShortDto>(data);
         }
     }

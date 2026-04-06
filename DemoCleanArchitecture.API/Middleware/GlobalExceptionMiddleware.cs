@@ -1,4 +1,5 @@
 ﻿using DemoCleanArchitecture.API.Common;
+using DemoCleanArchitecture.Domain.Exceptions;
 using FluentValidation;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -23,9 +24,9 @@ namespace DemoCleanArchitecture.API.Middleware
             {
                 await _next(context);
             }
-            catch (Exception ex) 
-            { 
-                await HandleException(context, ex); 
+            catch (Exception ex)
+            {
+                await HandleException(context, ex);
             }
         }
 
@@ -41,6 +42,22 @@ namespace DemoCleanArchitecture.API.Middleware
                     statusCode = StatusCodes.Status400BadRequest;
                     message = "Dữ liệu không hợp lệ.";
                     errors = ve.Errors.Select(e => e.ErrorMessage).ToList();
+                    break;
+                case DomainException de:
+                    statusCode = StatusCodes.Status400BadRequest;
+                    message = de.Message;
+                    break;
+                case BusinessRuleException be:
+                    statusCode = StatusCodes.Status400BadRequest;
+                    message = be.Message;
+                    break;
+                case NotFoundException ne:
+                    statusCode = StatusCodes.Status404NotFound;
+                    message = ne.Message;
+                    break;
+                case Exception e:
+                    statusCode = StatusCodes.Status500InternalServerError;
+                    message = e.Message;
                     break;
             }
 

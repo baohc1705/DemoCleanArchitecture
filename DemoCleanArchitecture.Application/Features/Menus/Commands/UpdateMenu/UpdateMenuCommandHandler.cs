@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -22,12 +23,12 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.UpdateMenu
         public async Task<int> Handle(UpdateMenuCommand request, CancellationToken cancellationToken)
         {
             var menu = await _menuRepository.GetByIdWithNewsAsync(request.Id)
-                ?? throw new Exception("Not found");
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
             if (menu.IsActive && !request.IsActive)
             {
                 var hasActive = await _menuRepository.HasActiveNewsAsync(request.Id);
                 if (hasActive)
-                    throw new Exception("Không thể ẩn menu đang published");
+                    throw new BusinessRuleException("Không thể ẩn menu đang có bài viết Published.");
             }
             menu.Name = request.Name;
             menu.Slug = request.Slug;

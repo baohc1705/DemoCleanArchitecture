@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -22,8 +23,8 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews
         public async Task<NewsDto> Handle(UnpublishNewsCommand request, CancellationToken cancellationToken)
         {
             var news = await _newsRepository.GetByIdAsync(request.Id)
-                ?? throw new Exception("Not found");
-            
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
+
             news.Unpublish();
 
             await _newsRepository.UpdateAsync(news);

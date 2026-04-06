@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -21,7 +22,8 @@ namespace DemoCleanArchitecture.Application.Features.News.Queries.GetNewsById
         }
         public async Task<NewsDto> Handle(GetNewsByIdQuery request, CancellationToken cancellationToken)
         {
-            var data = await _newsRepository.GetByIdAsync(request.Id);
+            var data = await _newsRepository.GetByIdAsync(request.Id)
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
             await _newsRepository.IncrementViewCountAsync(request.Id);
             return _mapper.Map<NewsDto>(data);
         }

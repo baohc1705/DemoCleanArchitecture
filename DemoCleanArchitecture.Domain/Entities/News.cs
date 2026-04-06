@@ -1,4 +1,5 @@
 ﻿using DemoCleanArchitecture.Domain.Enums;
+using DemoCleanArchitecture.Domain.Exceptions;
 
 namespace DemoCleanArchitecture.Domain.Entities
 {
@@ -18,7 +19,7 @@ namespace DemoCleanArchitecture.Domain.Entities
         public void Publish(DateTime? scheduledAt = null)
         {
             if (Status == NewsStatus.Archived)
-                throw new Exception("Không thể đăng bài đã Archived");
+                throw new DomainException("Không thể đăng bài đã Archived");
 
             if (scheduledAt.HasValue && scheduledAt > DateTime.Now)
             {
@@ -37,16 +38,16 @@ namespace DemoCleanArchitecture.Domain.Entities
         public void Unpublish()
         {
             if (Status != NewsStatus.Published && Status != NewsStatus.Scheduled)
-                throw new Exception("Chỉ có thể unpublish bài đang published hoặc scheduled");
+                throw new DomainException("Chỉ có thể unpublish bài đang published hoặc scheduled");
             Status = NewsStatus.Draft;
-            PublishedAt =null;
+            PublishedAt = null;
             UpdateAt = DateTime.UtcNow;
         }
 
         public void Archive()
         {
             if (Status != NewsStatus.Published)
-                throw new Exception("Chỉ archive bài đang published");
+                throw new DomainException("Chỉ archive bài đang published");
             Status = NewsStatus.Archived;
             PublishedAt = DateTime.UtcNow;
         }
@@ -54,7 +55,7 @@ namespace DemoCleanArchitecture.Domain.Entities
         public void UnArchive()
         {
             if (Status != NewsStatus.Archived)
-                throw new Exception("Bài chưa trạng thái archived");
+                throw new DomainException("Bài chưa trạng thái archived");
             Status = NewsStatus.Draft;
             UpdateAt = DateTime.UtcNow;
         }
@@ -68,7 +69,7 @@ namespace DemoCleanArchitecture.Domain.Entities
         public void MoveToMenu(int newMenuId)
         {
             if (newMenuId == MenuId)
-                throw new Exception("Bài viết đã thuộc menu này");
+                throw new DomainException("Bài viết đã thuộc menu này");
             MenuId = newMenuId;
             UpdateAt = DateTime.UtcNow;
         }

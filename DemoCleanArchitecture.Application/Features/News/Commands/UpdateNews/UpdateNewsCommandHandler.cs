@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Domain.Enums;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -22,9 +23,11 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.UpdateNews
         public async Task<int> Handle(UpdateNewsCommand request, CancellationToken cancellationToken)
         {
             var news = await _newsRepository.GetByIdAsync(request.Id)
-                ?? throw new Exception("Not found");
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
+
             if (news.Status == NewsStatus.Archived)
-                throw new Exception("Khong sua bai archived");
+                throw new BusinessRuleException( "Không thể sửa bài đã Archived");
+
             news.Title = request.Title;
             news.Summary = request.Summary;
             news.Content = request.Content;

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using MediatR;
 using System;
@@ -21,7 +22,7 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.UnarchiveNews
         public async Task<int> Handle(UnarchiveNewsCommand request, CancellationToken cancellationToken)
         {
             var news = await _newsRepository.GetByIdAsync(request.Id)
-                ?? throw new Exception("Not found");
+                ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
             news.UnArchive();
 
             return await _newsRepository.UpdateAsync(news);

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Domain.Entities;
+using DemoCleanArchitecture.Domain.Exceptions;
 using DemoCleanArchitecture.Domain.Interfaces;
 using FluentValidation;
 using MediatR;
@@ -25,7 +26,9 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
         }
         public async Task<MenuDto> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
         {
-            
+            if (request.ParentId.HasValue
+                && await _menuRepository.GetByIdAsync(request.ParentId.Value) == null)
+                throw new BusinessRuleException("ParentId có thể không tồn tại");
 
             var menu = new Menu
             {
