@@ -23,9 +23,12 @@ namespace DemoCleanArchitecture.Application.Common.Mappings
 
             CreateMap<News, NewsDto>()
                 .ForMember(dest => dest.MenuShort, opt => opt.MapFrom(src => src.Menu))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
                 .ReverseMap()
                 ;
-            CreateMap<News, NewsShortDto>().ReverseMap();
+            CreateMap<News, NewsShortDto>()
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+                .ReverseMap();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DemoCleanArchitecture.Application.Common.DTOs
         public string? Summary { get; set; }
         public string? Content { get; set; }
         public string? ThumbnailUrl { get; set; }
-        public NewsStatus Status { get; set; }
+        public string Status { get; set; } = null!;
         public DateTime? PublishedAt { get; set; }
         public int ViewCount { get; set; }
         public MenuShortDto MenuShort { get; set; } = new MenuShortDto();
@@ -26,7 +26,7 @@ namespace DemoCleanArchitecture.Application.Common.DTOs
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public NewsStatus Status { get; set; }
+        public string? Status { get; set; }
         public DateTime? PublishedAt { get; set; }
     } 
 }

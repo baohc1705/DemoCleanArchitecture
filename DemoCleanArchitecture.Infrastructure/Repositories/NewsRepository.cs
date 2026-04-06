@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using DemoCleanArchitecture.Domain.Entities;
 using DemoCleanArchitecture.Domain.Enums;
 using DemoCleanArchitecture.Domain.Interfaces;
@@ -25,9 +26,40 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             _mapper = mapper;
         }
 
+        public async Task<News> CreateAsync(News news)
+        {
+            Console.WriteLine(news);
+            var sw = Stopwatch.StartNew();
+
+            //var req = new Data.PersistenceModels.News
+            //{
+            //    MenuId = news.MenuId,
+            //    Title = news.Title,
+            //    Slug = news.Slug,
+            //    Summary = news.Summary,
+            //    Content = news.Content,
+            //    ThumbnailUrl = news.ThumbnailUrl,
+            //    Status = news.Status.ToString(),
+            //    PublishedAt = news.PublishedAt,
+            //};
+
+            var req = _mapper.Map<Data.PersistenceModels.News>(news);
+
+            var created = await _context.AddAsync(req);
+
+            await _context.SaveChangesAsync();
+
+            sw.Stop();
+
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+
+            return await GetByIdAsync(created.Entity.Id);
+        }
+
         public async Task<IEnumerable<News>> GetAllAsync()
         {
             var sw = Stopwatch.StartNew();
+
             var query = await _context.News
                 .Where(n => !n.DeletedAt.HasValue)
                 .Select(n => new Domain.Entities.News

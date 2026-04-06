@@ -21,7 +21,8 @@ namespace DemoCleanArchitecture.Infrastructure.Mappings
             CreateMap<Data.PersistenceModels.News, Domain.Entities.News>()
                 .ForMember(dest => dest.Menu, opt => opt.MapFrom(src => src.Menu))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => Enum.Parse<NewsStatus>(src.Status)))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString())); ;
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+                .ReverseMap();
         }
     }
 }

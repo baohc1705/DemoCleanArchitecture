@@ -11,5 +11,7 @@ namespace DemoCleanArchitecture.Domain.Interfaces
     {
         Task<News> GetByIdAsync(int id);
         Task<IEnumerable<News>> GetAllAsync();
+
+        Task<News> CreateAsync(News news);
     }
 }
