@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "E:\\ASP.NET\\DemoCleanArchitecture\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\updatemenu\\updatemenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\commands\\updatemenu\\updatemenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A07CCB54-1C12-41D1-A493-2CD6607DC6A6}|DemoCleanArchitecture.Infrastructure\\DemoCleanArchitecture.Infrastructure.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.infrastructure\\repositories\\menurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A07CCB54-1C12-41D1-A493-2CD6607DC6A6}|DemoCleanArchitecture.Infrastructure\\DemoCleanArchitecture.Infrastructure.csproj|solutionrelative:democleanarchitecture.infrastructure\\repositories\\menurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A07CCB54-1C12-41D1-A493-2CD6607DC6A6}|DemoCleanArchitecture.Infrastructure\\DemoCleanArchitecture.Infrastructure.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.infrastructure\\repositories\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A07CCB54-1C12-41D1-A493-2CD6607DC6A6}|DemoCleanArchitecture.Infrastructure\\DemoCleanArchitecture.Infrastructure.csproj|solutionrelative:democleanarchitecture.infrastructure\\repositories\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\news\\queries\\getnewsbyid\\getnewsbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\news\\queries\\getnewsbyid\\getnewsbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\news\\queries\\getnewsbyid\\getnewsbyidqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\news\\queries\\getnewsbyid\\getnewsbyidqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.domain\\interfaces\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39C35B27-2416-41B0-B852-EC489E5BCC26}|DemoCleanArchitecture.Domain\\DemoCleanArchitecture.Domain.csproj|solutionrelative:democleanarchitecture.domain\\interfaces\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\common\\dtos\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\common\\dtos\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\common\\mappings\\applicationmappingsprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\common\\mappings\\applicationmappingsprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\updatemenu\\updatemenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\commands\\updatemenu\\updatemenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47B67D82-BA56-4060-B9C2-1ED462EE3122}|DemoCleanArchitecture.API\\DemoCleanArchitecture.API.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.api\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\commands\\createmenu\\createmenucommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\commands\\updatemenu\\updatemenucommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\features\\menus\\queries\\getmenubyidwithnews\\getmenubyidwithnewsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\features\\menus\\queries\\getmenubyidwithnews\\getmenubyidwithnewsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|e:\\asp.net\\democleanarchitecture\\democleanarchitecture.application\\common\\dtos\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96BEAC2E-3DC8-4DF4-A795-B2FDDFEC17A3}|DemoCleanArchitecture.Application\\DemoCleanArchitecture.Application.csproj|solutionrelative:democleanarchitecture.application\\common\\dtos\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,24 +94,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "NewsRepository.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Infrastructure\\Repositories\\NewsRepository.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Infrastructure\\Repositories\\NewsRepository.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Infrastructure\\Repositories\\NewsRepository.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Infrastructure\\Repositories\\NewsRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T02:54:50.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "INewsRepository.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Interfaces\\INewsRepository.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Interfaces\\INewsRepository.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Interfaces\\INewsRepository.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Domain\\Interfaces\\INewsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T02:52:48.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetNewsByIdQueryHandler.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQueryHandler.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQueryHandler.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQueryHandler.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQueryHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T02:50:31.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetNewsByIdQuery.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQuery.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQuery.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQuery.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Application\\Features\\News\\Queries\\GetNewsById\\GetNewsByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T02:50:17.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationMappingsProfile.cs",
+              "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Common\\Mappings\\ApplicationMappingsProfile.cs",
+              "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Common\\Mappings\\ApplicationMappingsProfile.cs",
+              "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Common\\Mappings\\ApplicationMappingsProfile.cs",
+              "RelativeToolTip": "DemoCleanArchitecture.Application\\Common\\Mappings\\ApplicationMappingsProfile.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T02:46:58.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "UpdateMenuCommandHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommandHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommandHandler.cs",
               "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommandHandler.cs",
               "RelativeToolTip": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommandHandler.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAqwCMAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T02:12:04.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "UpdateMenuCommand.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommand.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\UpdateMenu\\UpdateMenuCommand.cs",
@@ -103,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "DeleteMenuCommandHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\DeleteMenu\\DeleteMenuCommandHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\DeleteMenu\\DeleteMenuCommandHandler.cs",
@@ -115,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "DeleteMenuCommand.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\DeleteMenu\\DeleteMenuCommand.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\DeleteMenu\\DeleteMenuCommand.cs",
@@ -127,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "MenuController.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.API\\Controllers\\MenuController.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.API\\Controllers\\MenuController.cs",
@@ -139,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "GetMenusWithNewsQueryHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenusWithNews\\GetMenusWithNewsQueryHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenusWithNews\\GetMenusWithNewsQueryHandler.cs",
@@ -151,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "GetMenusQueryHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenus\\GetMenusQueryHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenus\\GetMenusQueryHandler.cs",
@@ -163,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "GetMenuByIdWithNewsQueryHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenuByIdWithNews\\GetMenuByIdWithNewsQueryHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenuByIdWithNews\\GetMenuByIdWithNewsQueryHandler.cs",
@@ -175,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Infrastructure\\DependencyInjection.cs",
@@ -187,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\DependencyInjection.cs",
@@ -199,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "IMenuRepository.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Domain\\Interfaces\\IMenuRepository.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Domain\\Interfaces\\IMenuRepository.cs",
@@ -211,19 +296,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MenuRepository.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Infrastructure\\Repositories\\MenuRepository.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Infrastructure\\Repositories\\MenuRepository.cs",
               "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Infrastructure\\Repositories\\MenuRepository.cs",
               "RelativeToolTip": "DemoCleanArchitecture.Infrastructure\\Repositories\\MenuRepository.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAqwMMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAALIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T01:42:57.373Z"
+              "WhenOpened": "2026-04-06T01:42:57.373Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "GetMenuByIdQueryHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenuById\\GetMenuByIdQueryHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Queries\\GetMenuById\\GetMenuByIdQueryHandler.cs",
@@ -235,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "MenuDto.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Common\\DTOs\\MenuDto.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Common\\DTOs\\MenuDto.cs",
@@ -243,11 +329,12 @@
               "RelativeToolTip": "DemoCleanArchitecture.Application\\Common\\DTOs\\MenuDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T01:38:53.564Z"
+              "WhenOpened": "2026-04-06T01:38:53.564Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "CreateMenuCommandHandler.cs",
               "DocumentMoniker": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\CreateMenu\\CreateMenuCommandHandler.cs",
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\CreateMenu\\CreateMenuCommandHandler.cs",
@@ -265,9 +352,10 @@
               "RelativeDocumentMoniker": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\CreateMenu\\CreateMenuCommand.cs",
               "ToolTip": "E:\\ASP.NET\\DemoCleanArchitecture\\DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\CreateMenu\\CreateMenuCommand.cs",
               "RelativeToolTip": "DemoCleanArchitecture.Application\\Features\\Menus\\Commands\\CreateMenu\\CreateMenuCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T01:36:12.023Z"
+              "WhenOpened": "2026-04-06T01:36:12.023Z",
+              "EditorCaption": ""
             }
           ]
         }

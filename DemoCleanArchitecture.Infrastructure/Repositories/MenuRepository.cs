@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DemoCleanArchitecture.Infrastructure.Repositories
 {
@@ -174,15 +175,22 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
 
         public async Task<int> UpdateAsync(int id, Menu menu)
         {
-            return await _context.Menus
-                 .Where(m => m.Id == id)
-                 .ExecuteUpdateAsync(s => s
-                     .SetProperty(m => m.Name, menu.Name)
-                     .SetProperty(m => m.Slug, menu.Slug)
-                     .SetProperty(m => m.DisplayOrder, menu.DisplayOrder)
-                     .SetProperty(m => m.IsActive, menu.IsActive)
-                     .SetProperty(m => m.ParentId, menu.ParentId)
-                 );
+            var sw = Stopwatch.StartNew();
+
+            var query = await _context.Menus
+                .Where(m => m.Id == id)
+                .ExecuteUpdateAsync(s => s
+                    .SetProperty(m => m.Name, menu.Name)
+                    .SetProperty(m => m.Slug, menu.Slug)
+                    .SetProperty(m => m.DisplayOrder, menu.DisplayOrder)
+                    .SetProperty(m => m.IsActive, menu.IsActive)
+                    .SetProperty(m => m.ParentId, menu.ParentId)
+                );
+
+            sw.Stop();
+            Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+            return query;
+           
         }
     }
 }

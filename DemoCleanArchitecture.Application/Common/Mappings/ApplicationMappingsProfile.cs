@@ -15,7 +15,7 @@ namespace DemoCleanArchitecture.Application.Common.Mappings
         public ApplicationMappingsProfile()
         {
             CreateMap<Menu, MenuDto>()
-                .ForMember(dest => dest.NewsCount, opt => opt.MapFrom(src => src.News.Count))
+                .ForMember(dest => dest.NewsCount, opt => opt.MapFrom(src => src.News.Count(n => !n.IsDeleted)))
                 .ForMember(dest => dest.Children, opt => opt.MapFrom(src => src.Children))
                 .ReverseMap()
                 ;

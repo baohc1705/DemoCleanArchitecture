@@ -22,6 +22,7 @@ namespace DemoCleanArchitecture.Infrastructure
                 option.UseSqlServer(configuration.GetConnectionString("MenuNewsDB"));
             });
             services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<INewsRepository, NewsRepository>();
             return services; 
         }
     }
