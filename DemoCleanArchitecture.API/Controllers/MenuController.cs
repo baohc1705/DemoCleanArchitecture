@@ -1,6 +1,7 @@
 ﻿using DemoCleanArchitecture.API.Common;
 using DemoCleanArchitecture.Application.Common.DTOs;
 using DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu;
+using DemoCleanArchitecture.Application.Features.Menus.Commands.DeleteMenu;
 using DemoCleanArchitecture.Application.Features.Menus.Queries;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuById;
 using DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenuByIdWithNews;
@@ -58,6 +59,22 @@ namespace DemoCleanArchitecture.API.Controllers
         {
             var response = await _mediator.Send(command);
             return Ok(ApiResponse<MenuDto>.Ok(response, "Create news successfully"));
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<int>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> DeleteMenu(int id)
+        {
+            try
+            {
+                var response = await _mediator.Send(new DeleteMenuCommand() { Id = id });
+
+                return Ok(ApiResponse<int>.Ok(response, "Delete news successfully"));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ApiResponse<int>.Fail("Not found"));
+            }    
         }
     }
 }

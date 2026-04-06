@@ -41,6 +41,13 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             return await GetByIdWithNewsAsync(req.Id);
         }
 
+        public async Task<int> DeleteAsync(int id)
+        {
+            return await _context.Menus
+                .Where(m => m.Id == id)
+                .ExecuteDeleteAsync();
+        }
+
         public async Task<IEnumerable<Menu>> GetAllAsync()
         {
             var sw = Stopwatch.StartNew();
