@@ -31,21 +31,21 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> GetNewsById(int id)
         {
             var response = await _mediator.Send(new GetNewsByIdQuery() { Id = id });
-            return Ok(ApiResponse<NewsDto>.Ok(response, "Get news by id successfully"));
+            return Ok(ApiResponse<NewsDto>.Ok(response, "Get news by id successfully", StatusCodes.Status200OK));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetNews()
         {
             var response = await _mediator.Send(new GetNewsQuery());
-            return Ok(ApiResponse<IEnumerable<NewsShortDto>>.Ok(response, "Get news by id successfully"));
+            return Ok(ApiResponse<IEnumerable<NewsShortDto>>.Ok(response, "Get news by id successfully", StatusCodes.Status200OK));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateNews([FromBody] CreateNewsCommand command)
         {
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully", StatusCodes.Status201Created));
         }
 
         [HttpPut("{id}")]
@@ -53,7 +53,7 @@ namespace DemoCleanArchitecture.API.Controllers
         {
             command.Id = id;
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully", StatusCodes.Status200OK));
         }
 
         
@@ -64,13 +64,13 @@ namespace DemoCleanArchitecture.API.Controllers
             var response = await _mediator.Send(new DeleteNewsCommand { Id = id });
             if (response < 1)
                 return BadRequest(ApiResponse<int>.Fail("Fail"));
-            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully", StatusCodes.Status200OK));
         }
 
         [HttpPatch("{id}/publish")]
         public async Task<IActionResult> PublishNews(int id, PublishNewsCommand command)
         {
-            var res = await _mediator.Send(new PublishNewsCommand { Id = id });
+            var res = await _mediator.Send(new PublishNewsCommand { Id = id , ScheduledAt = command.ScheduledAt});
             var msg = command.ScheduledAt.HasValue == true
                 ? $"Đã lên lịch đăng bài vào {command.ScheduledAt:dd/MM/yyyy}."
                 : "Bài viết đã được publish";
@@ -81,28 +81,28 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> UnpublishNews(int id)
         {
             var res = await _mediator.Send(new UnpublishNewsCommand { Id = id});
-            return Ok(ApiResponse<int>.Ok(res, "Bài viết đã được chuyển về Draft."));
+            return Ok(ApiResponse<int>.Ok(res, "Bài viết đã được chuyển về Draft.", StatusCodes.Status200OK));
         }
 
         [HttpPatch("{id}/move")]
         public async Task<IActionResult> MoveToMenu(int id, MoveNewsCommand command)
         {
             var res = await _mediator.Send(command);
-            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về menu={command.TargetMenuId}"));
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về menu={command.TargetMenuId}", StatusCodes.Status200OK));
         }
 
         [HttpPatch("{id}/archive")]
         public async Task<IActionResult> ArchiveNews(int id)
         {
             var res = await _mediator.Send(new ArchiveNewsCommand() { Id = id});
-            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về Archive"));
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về Archive", StatusCodes.Status200OK));
         }
 
         [HttpPatch("{id}/unarchive")]
         public async Task<IActionResult> UnarchiveNews(int id)
         {
             var res = await _mediator.Send(new UnarchiveNewsCommand() { Id = id });
-            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về draft"));
+            return Ok(ApiResponse<int>.Ok(res, $"Bài viết đã được chuyển về draft", StatusCodes.Status200OK));
         }
     }
 }

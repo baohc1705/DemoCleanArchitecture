@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// tạo một pipeline behavior để thêm vào luồng của một request xử lý validation 
+
 namespace DemoCleanArchitecture.Application.Common.Validators
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
@@ -19,6 +21,8 @@ namespace DemoCleanArchitecture.Application.Common.Validators
         {
             var context = new ValidationContext<TRequest>(request);
 
+            //Lấy tất cả validator của TRequest (CreateMenuCommandValidator)
+            
             var validationFailure = await Task.WhenAll(
                 _validators.Select(v => v.ValidateAsync(context)));
 
@@ -27,6 +31,8 @@ namespace DemoCleanArchitecture.Application.Common.Validators
                 .Where(f => f != null)
                 .ToList();
 
+            // Nếu lỗi thì ném ra validation exception
+            // lỗi này sẽ được bắt lại và xử lý ở GlobalExceptionHandler middleware
             if (failures.Any())
             {
                 throw new ValidationException(failures);

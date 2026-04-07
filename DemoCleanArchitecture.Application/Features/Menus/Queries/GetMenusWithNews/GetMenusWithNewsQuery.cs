@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenusWithNews
 {
-    public class GetMenusWithNewsQuery : IRequest<IEnumerable<MenuDto>>
+    public class GetMenusWithNewsQuery : IRequest<IEnumerable<MenuWithNewsDto>>
     {
     }
 }

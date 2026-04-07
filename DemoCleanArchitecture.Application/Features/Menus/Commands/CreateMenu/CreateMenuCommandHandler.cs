@@ -26,6 +26,7 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
         }
         public async Task<int> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
         {
+
             if (request.ParentId.HasValue
                 && await _menuRepository.GetByIdAsync(request.ParentId.Value) == null)
                 throw new BusinessRuleException("ParentId có thể không tồn tại");

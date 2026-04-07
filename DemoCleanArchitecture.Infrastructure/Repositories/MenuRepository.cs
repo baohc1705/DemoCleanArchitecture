@@ -56,7 +56,6 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             var sw = Stopwatch.StartNew();
             var query = await _context.Menus
                 .Where(m => m.IsActive && m.DeletedAt == null)
-                .OrderBy(m => m.DisplayOrder)
                 .Select(m => new Domain.Entities.Menu
                 {
                     Id = m.Id,
@@ -71,7 +70,6 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             return query;
         }
 
-        // Phương thức sử lý nếu nhiều join phức tạp quá có thể viết bằng Dapper
         // Cũng có thể sử dụng SP
 
         public async Task<IEnumerable<Menu>> GetAllWithNewsAsync()
@@ -80,7 +78,6 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
 
             var query = await _context.Menus
                 .Where(m => m.IsActive && m.DeletedAt == null)
-                .OrderBy(m => m.DisplayOrder)
                 .Select(m => new Domain.Entities.Menu
                 {
                     Id = m.Id,
@@ -90,14 +87,15 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
                     IsActive = m.IsActive,
                     ParentId = m.ParentId,
                     News = m.News
-                    .Select(n => new Domain.Entities.News { Id = n.Id }).ToList(),
-                    Children = m.InverseParent.Select(c => new Domain.Entities.Menu
+                    .Select(n => new Domain.Entities.News 
                     {
-                        Id = c.Id,
-                        Name = c.Name,
-                        Slug = c.Slug,
-                        IsActive = c.IsActive
-                    }).ToList()
+                        Id = n.Id,
+                        Title = n.Title,
+                        Status = Enum.Parse<NewsStatus>(n.Status),
+                        PublishedAt = n.PublishedAt,
+
+                    }).ToList(),
+                   
                 })
                 .AsNoTracking()
                 .ToListAsync();

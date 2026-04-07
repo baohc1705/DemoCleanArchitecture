@@ -29,7 +29,7 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> GetMenus()
         {
             var response = await _mediator.Send(new GetMenusQuery());
-            return Ok(ApiResponse<IEnumerable<MenuShortDto>>.Ok(response, "Get menus successfully"));
+            return Ok(ApiResponse<IEnumerable<MenuShortDto>>.Ok(response, "Get menus successfully",StatusCodes.Status200OK));
         }
 
         // Get thông tin tất cả record của menu và cùng với thông tin news
@@ -37,7 +37,7 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> GetMenusWithNews()
         {
             var response = await _mediator.Send(new GetMenusWithNewsQuery());
-            return Ok(ApiResponse<IEnumerable<MenuDto>>.Ok(response, "Get menus with news successfully"));
+            return Ok(ApiResponse<IEnumerable<MenuWithNewsDto>>.Ok(response, "Get menus with news successfully", StatusCodes.Status200OK));
         }
 
         // Get thông tin tất cả record của menu và cùng với thông tin news
@@ -45,21 +45,21 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> GetMenusById(int id)
         {
             var response = await _mediator.Send(new GetMenuByIdQuery() { Id = id });
-            return Ok(ApiResponse<MenuShortDto>.Ok(response, "Get menus by id successfully"));
+            return Ok(ApiResponse<MenuShortDto>.Ok(response, "Get menus by id successfully", StatusCodes.Status200OK));
         }
 
         [HttpGet("GetMenusWithNews/{id}")]
         public async Task<IActionResult> GetMenusByIdWithMenus(int id)
         {
             var response = await _mediator.Send(new GetMenuByIdWithNewsQuery() { Id = id });
-            return Ok(ApiResponse<MenuDto>.Ok(response, "Get menus by id with news successfully"));
+            return Ok(ApiResponse<MenuDto>.Ok(response, "Get menus by id with news successfully", StatusCodes.Status200OK));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateMenu([FromBody] CreateMenuCommand command)
         {
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully", StatusCodes.Status201Created));
         }
 
         [HttpDelete("{id}")]
@@ -68,7 +68,7 @@ namespace DemoCleanArchitecture.API.Controllers
 
             var response = await _mediator.Send(new DeleteMenuCommand() { Id = id });
 
-            return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Delete menu successfully", StatusCodes.Status204NoContent));
 
         }
 
@@ -80,7 +80,7 @@ namespace DemoCleanArchitecture.API.Controllers
 
             var response = await _mediator.Send(command);
 
-            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Update menu successfully", StatusCodes.Status200OK));
 
         }
     }

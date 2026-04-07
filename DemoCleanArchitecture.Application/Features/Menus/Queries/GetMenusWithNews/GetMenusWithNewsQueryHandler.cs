@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenusWithNews
 {
-    internal class GetMenusWithNewsQueryHandler : IRequestHandler<GetMenusWithNewsQuery, IEnumerable<MenuDto>>
+    internal class GetMenusWithNewsQueryHandler : IRequestHandler<GetMenusWithNewsQuery, IEnumerable<MenuWithNewsDto>>
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
@@ -19,10 +19,10 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Queries.GetMenusWithN
             _menuRepository = menuRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<MenuDto>> Handle(GetMenusWithNewsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<MenuWithNewsDto>> Handle(GetMenusWithNewsQuery request, CancellationToken cancellationToken)
         {
             var data = await _menuRepository.GetAllWithNewsAsync();
-            return _mapper.Map<IEnumerable<MenuDto>>(data);
+            return _mapper.Map<IEnumerable<MenuWithNewsDto>>(data);
         }
     }
 }

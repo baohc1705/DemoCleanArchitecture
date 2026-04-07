@@ -26,4 +26,15 @@ namespace DemoCleanArchitecture.Application.Common.DTOs
         public string Slug { get; set; } = null!;
         public bool IsActive { get; set; }
     }
+
+    public class MenuWithNewsDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
+        public string Slug { get; set; } = null!;
+        public int DisplayOrder { get; set; }
+        public bool IsActive { get; set; }
+        public int? ParentId { get; set; }
+        public List<NewsShortDto> News {get; set;} = new List<NewsShortDto>();
+    }
 }
