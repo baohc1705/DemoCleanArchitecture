@@ -35,7 +35,8 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.UpdateMenu
             menu.DisplayOrder = request.DisplayOrder;
             menu.IsActive = request.IsActive;
             menu.ParentId = request.ParentId;
-            return await _menuRepository.UpdateAsync(request.Id, menu);
+            var data = await _menuRepository.UpdateAsync(request.Id, menu);
+            return data < 1 ? 0 : menu.Id;
         }
     }
 }

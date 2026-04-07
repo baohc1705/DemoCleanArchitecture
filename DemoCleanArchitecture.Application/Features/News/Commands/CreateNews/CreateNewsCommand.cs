@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.CreateNews
 {
-    public class CreateNewsCommand : IRequest<NewsDto>
+    public class CreateNewsCommand : IRequest<int>
     {
        
         public int MenuId { get; set; }

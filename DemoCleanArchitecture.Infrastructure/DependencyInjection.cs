@@ -16,13 +16,18 @@ namespace DemoCleanArchitecture.Infrastructure
     public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration configuration) {
+            // inject automapper
             services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
+            // Kết nối SQL server
             services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(configuration.GetConnectionString("MenuNewsDB"));
             });
+            // inject repository dependency
             services.AddScoped<IMenuRepository, MenuRepository>();
+
             services.AddScoped<INewsRepository, NewsRepository>();
+
             return services; 
         }
     }

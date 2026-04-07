@@ -16,6 +16,8 @@ namespace DemoCleanArchitecture.Domain.Entities
         public int ViewCount { get; set; }
 
         public Menu Menu { get; set; } = null!;
+
+        // Xử lý domain publish bài viết
         public void Publish(DateTime? scheduledAt = null)
         {
             if (Status == NewsStatus.Archived)
@@ -44,6 +46,8 @@ namespace DemoCleanArchitecture.Domain.Entities
             UpdateAt = DateTime.UtcNow;
         }
 
+
+        // Xử lý domain archive
         public void Archive()
         {
             if (Status != NewsStatus.Published)
@@ -60,12 +64,14 @@ namespace DemoCleanArchitecture.Domain.Entities
             UpdateAt = DateTime.UtcNow;
         }
 
+        // Xử lý soft delete tránh xóa luôn mất dữ liệu
         public void SoftDelete()
         {
             DeleteAt = DateTime.UtcNow;
             UpdateAt = DateTime.UtcNow;
         }
 
+        // Xử lý di chuyển news sang menu khác
         public void MoveToMenu(int newMenuId)
         {
             if (newMenuId == MenuId)

@@ -71,6 +71,9 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
             return query;
         }
 
+        // Phương thức sử lý nếu nhiều join phức tạp quá có thể viết bằng Dapper
+        // Cũng có thể sử dụng SP
+
         public async Task<IEnumerable<Menu>> GetAllWithNewsAsync()
         {
             var sw = Stopwatch.StartNew();
@@ -99,6 +102,7 @@ namespace DemoCleanArchitecture.Infrastructure.Repositories
                 .AsNoTracking()
                 .ToListAsync();
 
+            // EF sử dụng include lấy luôn các dữ liệu không cần thiết
             //var data = await _context.Menus
             //     .Include(m => m.News)
             //     .Include(m => m.InverseParent)

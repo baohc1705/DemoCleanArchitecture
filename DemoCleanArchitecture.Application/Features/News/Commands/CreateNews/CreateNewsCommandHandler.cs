@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.CreateNews
 {
-    public class CreateNewsCommandHandler : IRequestHandler<CreateNewsCommand, NewsDto>
+    public class CreateNewsCommandHandler : IRequestHandler<CreateNewsCommand, int>
     {
         private readonly INewsRepository _newsRepository;
         private readonly IMapper _mapper;
-        public CreateNewsCommandHandler (INewsRepository newsRepository, IMapper mapper)
+        public CreateNewsCommandHandler(INewsRepository newsRepository, IMapper mapper)
         {
             _newsRepository = newsRepository;
             _mapper = mapper;
         }
-        public async Task<NewsDto> Handle(CreateNewsCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateNewsCommand request, CancellationToken cancellationToken)
         {
             var news = new Domain.Entities.News
             {
@@ -36,7 +36,7 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.CreateNews
             if (request.ScheduledAt.HasValue)
                 news.Publish(request.ScheduledAt.Value);
             var createdData = await _newsRepository.CreateAsync(news);
-            return _mapper.Map<NewsDto>(createdData);
+            return createdData != null ? createdData.Id : 0;
         }
     }
 }

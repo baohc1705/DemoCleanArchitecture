@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.PublishNews
 {
-    public class PublishNewsCommandHandler : IRequestHandler<PublishNewsCommand, NewsDto>
+    public class PublishNewsCommandHandler : IRequestHandler<PublishNewsCommand, int>
     {
         private readonly INewsRepository _newsRepository;
         private readonly IMapper _mapper;
@@ -20,16 +20,16 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.PublishNews
             _newsRepository = newsRepository;
             _mapper = mapper;
         }
-        public async Task<NewsDto> Handle(PublishNewsCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(PublishNewsCommand request, CancellationToken cancellationToken)
         {
             var news = await _newsRepository.GetByIdAsync(request.Id)
                 ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
 
             news.Publish(request.ScheduledAt);
 
-            await _newsRepository.UpdateAsync(news);
+            var data = await _newsRepository.UpdateAsync(news);
 
-            return _mapper.Map<NewsDto>(news);
+            return data < 1 ? 0 : news.Id;
 
         }
     }

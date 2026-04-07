@@ -1,5 +1,7 @@
 ﻿namespace DemoCleanArchitecture.API.Common
 {
+    // Lớp định nghĩa Response của Api
+    // Custom Api
     public class ApiResponse<T>
     {
         public int Code { get; set; } = 1000;
@@ -8,7 +10,7 @@
         public T? Data { get; set; }
         public List<string>? Errors { get; set; }
 
-
+        // Method dùng để hiển thị nếu response phản hồi thành công
         public static ApiResponse<T> Ok(T data, string message = "Success", int code = 1000)
             => new ApiResponse<T>
             {
@@ -18,6 +20,7 @@
                 Code = code
             };
 
+        // Method dùng để hiển thị nếu response phản hồi thất bại
         public static ApiResponse<T> Fail(string message, int code = 1001, List<string>? errors = null)
             => new ApiResponse<T>
             {

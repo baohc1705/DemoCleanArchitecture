@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews
 {
-    public class UnpublishNewsCommandHandler : IRequestHandler<UnpublishNewsCommand, NewsDto>
+    public class UnpublishNewsCommandHandler : IRequestHandler<UnpublishNewsCommand, int>
     {
         private readonly INewsRepository _newsRepository;
         private readonly IMapper _mapper;
@@ -20,16 +20,16 @@ namespace DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews
             _newsRepository = newsRepository;
             _mapper = mapper;
         }
-        public async Task<NewsDto> Handle(UnpublishNewsCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(UnpublishNewsCommand request, CancellationToken cancellationToken)
         {
             var news = await _newsRepository.GetByIdAsync(request.Id)
                 ?? throw new NotFoundException($"Không tìm thấy với id = {request.Id}");
 
             news.Unpublish();
 
-            await _newsRepository.UpdateAsync(news);
+            var data = await _newsRepository.UpdateAsync(news);
 
-            return _mapper.Map<NewsDto>(news);
+            return data > 0 ? news.Id : 0;
         }
     }
 }

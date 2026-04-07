@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
 {
-    public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, MenuDto>
+    public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, int>
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
@@ -24,7 +24,7 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
             _mapper = mapper;
            
         }
-        public async Task<MenuDto> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
         {
             if (request.ParentId.HasValue
                 && await _menuRepository.GetByIdAsync(request.ParentId.Value) == null)
@@ -40,7 +40,7 @@ namespace DemoCleanArchitecture.Application.Features.Menus.Commands.CreateMenu
             };
 
             var createdData = await _menuRepository.CreateAsync(menu);
-            return _mapper.Map<MenuDto>(createdData);
+            return createdData.Id;
         }
     }
 }

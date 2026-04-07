@@ -16,20 +16,23 @@ namespace DemoCleanArchitecture.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenuController : ApiControllerBase
+    public class MenuController : ControllerBase
     {
-        public MenuController(ISender mediator) : base(mediator)
+        private readonly ISender _mediator;
+        public MenuController(ISender mediator)
         {
+            _mediator = mediator; // inject dependency mediator
         }
 
+        // Get thông tin tất cả record của menu
         [HttpGet]
-
         public async Task<IActionResult> GetMenus()
         {
             var response = await _mediator.Send(new GetMenusQuery());
             return Ok(ApiResponse<IEnumerable<MenuShortDto>>.Ok(response, "Get menus successfully"));
         }
 
+        // Get thông tin tất cả record của menu và cùng với thông tin news
         [HttpGet("GetMenusWithNews")]
         public async Task<IActionResult> GetMenusWithNews()
         {
@@ -37,6 +40,7 @@ namespace DemoCleanArchitecture.API.Controllers
             return Ok(ApiResponse<IEnumerable<MenuDto>>.Ok(response, "Get menus with news successfully"));
         }
 
+        // Get thông tin tất cả record của menu và cùng với thông tin news
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMenusById(int id)
         {
@@ -55,7 +59,7 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> CreateMenu([FromBody] CreateMenuCommand command)
         {
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<MenuDto>.Ok(response, "Create menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully"));
         }
 
         [HttpDelete("{id}")]

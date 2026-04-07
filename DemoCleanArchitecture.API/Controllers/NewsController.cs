@@ -19,10 +19,12 @@ namespace DemoCleanArchitecture.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NewsController : ApiControllerBase
+    public class NewsController : ControllerBase
     {
-        public NewsController(ISender mediator) : base(mediator)
+        private readonly ISender _mediator;
+        public NewsController(ISender mediator)
         {
+            _mediator = mediator; // inject dependency mediator
         }
 
         [HttpGet("{id}")]
@@ -43,17 +45,18 @@ namespace DemoCleanArchitecture.API.Controllers
         public async Task<IActionResult> CreateNews([FromBody] CreateNewsCommand command)
         {
             var response = await _mediator.Send(command);
-            return Ok(ApiResponse<NewsDto>.Ok(response, "Create menu successfully"));
+            return Ok(ApiResponse<int>.Ok(response, "Create menu successfully"));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> CreateNews(int id, [FromBody] UpdateNewsCommand command)
+        public async Task<IActionResult> UpdateNews(int id, [FromBody] UpdateNewsCommand command)
         {
             command.Id = id;
             var response = await _mediator.Send(command);
             return Ok(ApiResponse<int>.Ok(response, "Update menu successfully"));
         }
 
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> SoftDeleteNews(int id)
         {
@@ -71,14 +74,14 @@ namespace DemoCleanArchitecture.API.Controllers
             var msg = command.ScheduledAt.HasValue == true
                 ? $"Đã lên lịch đăng bài vào {command.ScheduledAt:dd/MM/yyyy}."
                 : "Bài viết đã được publish";
-            return Ok(ApiResponse<NewsDto>.Ok(res, msg));
+            return Ok(ApiResponse<int>.Ok(res, msg));
         }
 
         [HttpPatch("{id}/unpublish")]
         public async Task<IActionResult> UnpublishNews(int id)
         {
             var res = await _mediator.Send(new UnpublishNewsCommand { Id = id});
-            return Ok(ApiResponse<NewsDto>.Ok(res, "Bài viết đã được chuyển về Draft."));
+            return Ok(ApiResponse<int>.Ok(res, "Bài viết đã được chuyển về Draft."));
         }
 
         [HttpPatch("{id}/move")]

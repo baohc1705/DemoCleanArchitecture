@@ -10,8 +10,8 @@
 
         public Menu? Parent {  get; set; }
 
-        public ICollection<Menu> Children { get; set; } = new List<Menu>();
+        public List<Menu> Children { get; set; } = new List<Menu>();
 
-        public ICollection<News> News { get; set; } = new List<News>();
+        public List<News> News { get; set; } = new List<News>();
     }
 }

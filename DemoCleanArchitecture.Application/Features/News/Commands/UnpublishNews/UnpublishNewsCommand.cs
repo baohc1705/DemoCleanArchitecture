@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.UnpublishNews
 {
-    public class UnpublishNewsCommand : IRequest<NewsDto>
+    public class UnpublishNewsCommand : IRequest<int>
     {
         public int Id { get; set; }
     }

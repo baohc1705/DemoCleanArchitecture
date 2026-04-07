@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoCleanArchitecture.Application.Features.News.Commands.PublishNews
 {
-    public class PublishNewsCommand : IRequest<NewsDto>
+    public class PublishNewsCommand : IRequest<int>
     {
         public int Id { get; set; }
         public DateTime? ScheduledAt { get; set; }
